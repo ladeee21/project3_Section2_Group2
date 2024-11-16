@@ -10,11 +10,6 @@ Car::Car(QWidget *parent)
     ui->setupUi(this);
 }
 
-//void Car::updateSteeringIcon(QPixmap rotatedPixmap)
-//{
-//    ui->wheel->setPixmap(rotatedPixmap);
-//}
-
 Car::~Car()
 {
     delete ui;

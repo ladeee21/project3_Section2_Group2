@@ -48,6 +48,13 @@ public:
 		else return false;
 	}
 
+	bool isFuelEmpty()
+	{
+		if (fuelPercentage == 0)
+			return true;
+		else return false;
+	}
+
 private:
 	Ui::FuelLevelClass ui;
 
