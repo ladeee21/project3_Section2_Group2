@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>fuelIconYellow.png</file>
+        <file>fuelIconRed.png</file>
+        <file>steering_wheel.png</file>
+    </qresource>
+</RCC>
