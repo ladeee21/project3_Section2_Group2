@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QWidget>
+#include <iostream>
 #include "ui_Steering.h"
 
 class Steering : public QWidget
@@ -13,12 +14,15 @@ class Steering : public QWidget
 public:
 	Steering(QWidget *parent = nullptr);
 	~Steering();
-	// steering functions
+
+	
 	int calculateWheelAngle(int sliderPosition)
 	{
 		this->wheelAngle = sliderPosition * 2;
 		return this->wheelAngle;
 	}
+	void readSteeringData();
+	void writeSteeringData();
 
 private slots:
 	void getSliderInput(int value);

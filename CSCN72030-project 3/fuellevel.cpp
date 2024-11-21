@@ -1,41 +1,48 @@
 #include "stdafx.h"
 #include "fuellevel.h"
 
-FuelLevel::FuelLevel(QWidget *parent)
-	: QWidget(parent)
+using namespace std;
+
+FuelLevel::FuelLevel(QWidget* parent)
+    : QWidget(parent)
 {
-	ui.setupUi(this);
+    // initialize variables to empty
+    this->fuelPercentage = 0;
+    this->currentFuelLevel = 0;
+    this->lowFuelAlert = false;
+    this->criticalFuelAlert = false;
+
+    // start ui
+    ui.setupUi(this);
 }
 
 FuelLevel::~FuelLevel()
 {}
 
-void FuelLevel::on_lowfueltest_clicked()
+void FuelLevel::updateFuelLevel(float fuelLevel)
 {
-    setFuelPercentage(6);
-    updateFuelLevel();
-}
-void FuelLevel::on_critfueltest_clicked()
-{
-    setFuelPercentage(5);
-    updateFuelLevel();
-}
+    // set fuel level and percentage
+    this->currentFuelLevel = fuelLevel;
+    setFuelPercentage(fuelLevel);
 
-void FuelLevel::updateFuelLevel()
-{
-    ui.fuelBar->setValue(calculateFuelPercentage());
+    // update fuel bar and label to fuel percentage
+    ui.fuelBar->setValue(this->fuelPercentage);
+    updateFuelPercentageLabel();
 
+    // if fuel is critical turn yellow light on and red light off
     if (isFuelCritical())
     {
         ui.yellowLight->setVisible(false);
         ui.redLight->setVisible(true);
 
     }
+    // if fuel is low turn red light on and yellow light off
     else if (isFuelLow())
     {
         ui.redLight->setVisible(false);
         ui.yellowLight->setVisible(true);
     }
+    // turn both lights off
     else
     {
         ui.redLight->setVisible(false);
@@ -43,13 +50,33 @@ void FuelLevel::updateFuelLevel()
     }
 }
 
-void FuelLevel::on_up_clicked()
+void FuelLevel::updateFuelPercentageLabel()
 {
-    this->currentFuelLevel = currentFuelLevel + 1;
-    updateFuelLevel();
+    // set percent label to current fuel percentage
+    QString percentageText = QString::number(this->fuelPercentage) + "%";
+    ui.fuelPercent->setText(percentageText);
 }
-void FuelLevel::on_down_clicked()
-{
-    this->currentFuelLevel = currentFuelLevel - 1;
-    updateFuelLevel();
+
+void FuelReader::readFuelData() {
+
+    // open file in read mode
+    QFile file(":/data/fuelLevel.txt");
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qWarning() << "Failed to open file";
+        return;
+    }
+
+    // read one line at a time 
+    QTextStream in(&file);
+    while (!in.atEnd()) {
+        QString line = in.readLine();
+        // lineRead is connected to updateFuelData so moves input data to main thread
+        emit lineRead(line.toFloat());
+
+        // make thread wait 
+        QThread::msleep(100);
+    }
+
+    // move file pointer back to start
+    in.seek(0);
 }

@@ -2,6 +2,8 @@
 
 #include <QtWidgets/QMainWindow>
 #include "ui_Car.h"
+#include "steering.h"
+#include "fuellevel.h"
 
 class Car : public QMainWindow
 {
@@ -12,6 +14,8 @@ public:
     ~Car();
 
    // void updateSteeringIcon(QPixmap rotatedPixmap);
-protected:
+private:
     Ui::CarClass *ui;
+    FuelLevel *fl;
+    Steering* str;
 };
