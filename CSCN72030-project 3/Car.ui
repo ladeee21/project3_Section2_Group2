@@ -14,25 +14,27 @@
    <string>Car</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="Steering" name="widget" native="true">
+   <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>29</x>
-      <y>19</y>
-      <width>351</width>
+      <x>40</x>
+      <y>40</y>
+      <width>281</width>
       <height>301</height>
      </rect>
     </property>
+    <layout class="QGridLayout" name="steeringPrototype"/>
    </widget>
-   <widget class="FuelLevel" name="widget_2" native="true">
+   <widget class="QWidget" name="gridLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>430</x>
-      <y>20</y>
-      <width>341</width>
+      <x>380</x>
+      <y>49</y>
+      <width>291</width>
       <height>291</height>
      </rect>
     </property>
+    <layout class="QGridLayout" name="fuelLevelPrototype"/>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -56,20 +58,6 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <customwidgets>
-  <customwidget>
-   <class>Steering</class>
-   <extends>QWidget</extends>
-   <header>steering.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>FuelLevel</class>
-   <extends>QWidget</extends>
-   <header>fuellevel.h</header>
-   <container>1</container>
-  </customwidget>
- </customwidgets>
  <resources>
   <include location="Car.qrc"/>
  </resources>
