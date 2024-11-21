@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>854</width>
-    <height>597</height>
+    <width>992</width>
+    <height>642</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,10 +17,10 @@
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>40</y>
-      <width>281</width>
-      <height>301</height>
+      <x>20</x>
+      <y>320</y>
+      <width>351</width>
+      <height>261</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="steeringPrototype"/>
@@ -36,13 +36,33 @@
     </property>
     <layout class="QGridLayout" name="fuelLevelPrototype"/>
    </widget>
+   <widget class="Speed" name="widget_3" native="true">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>421</width>
+      <height>301</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="Lights" name="widget_4" native="true">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>310</y>
+      <width>501</width>
+      <height>271</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>854</width>
+     <width>992</width>
      <height>21</height>
     </rect>
    </property>
@@ -58,6 +78,32 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>Steering</class>
+   <extends>QWidget</extends>
+   <header>steering.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>FuelLevel</class>
+   <extends>QWidget</extends>
+   <header>fuellevel.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Speed</class>
+   <extends>QWidget</extends>
+   <header>Speed.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Lights</class>
+   <extends>QWidget</extends>
+   <header>Lights.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="Car.qrc"/>
  </resources>

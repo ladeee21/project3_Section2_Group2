@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LightsClass</class>
+ <widget class="QWidget" name="LightsClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>583</width>
+    <height>381</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Lights Control</string>
+  </property>
+  <widget class="QLabel" name="interiorLight">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>130</y>
+     <width>40</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>40</width>
+     <height>40</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string>font-size: 14px; font-weight: bold;</string>
+   </property>
+   <property name="text">
+    <string>I</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="reverseLight">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>190</y>
+     <width>40</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>40</width>
+     <height>40</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string>font-size: 14px; font-weight: bold;</string>
+   </property>
+   <property name="text">
+    <string>R</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="brakeLight">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>180</y>
+     <width>40</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>40</width>
+     <height>40</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string>font-size: 14px; font-weight: bold;</string>
+   </property>
+   <property name="text">
+    <string>B</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="parkingLight">
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>180</y>
+     <width>40</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>40</width>
+     <height>40</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string>font-size: 14px; font-weight: bold;</string>
+   </property>
+   <property name="text">
+    <string>P</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="turnSignalRight">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>80</y>
+     <width>50</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>40</width>
+     <height>40</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>50</width>
+     <height>30</height>
+    </size>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="icons.qrc">:/icons/turn_right_white.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignLeading</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="turnSignalLeft">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>80</y>
+     <width>50</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>40</width>
+     <height>40</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>50</width>
+     <height>30</height>
+    </size>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="icons.qrc">:/icons/turn_left_white.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignLeading</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="highBeamLight">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>40</y>
+     <width>40</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>40</width>
+     <height>40</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string>font-size: 14px; font-weight: bold;</string>
+   </property>
+   <property name="text">
+    <string>H</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lowBeamLight">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>40</y>
+     <width>40</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>40</width>
+     <height>40</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string>font-size: 14px; font-weight: bold;</string>
+   </property>
+   <property name="text">
+    <string>L</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="controlLightButton">
+   <property name="geometry">
+    <rect>
+     <x>7</x>
+     <y>7</y>
+     <width>80</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>80</width>
+     <height>30</height>
+    </size>
+   </property>
+   <property name="text">
+    <string>Control Light</string>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
+ <connections/>
+</ui>
