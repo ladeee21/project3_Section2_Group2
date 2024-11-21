@@ -14,7 +14,7 @@
    <string>Car</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="Steering" name="widget" native="true">
+   <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -23,16 +23,18 @@
       <height>261</height>
      </rect>
     </property>
+    <layout class="QGridLayout" name="steeringPrototype"/>
    </widget>
-   <widget class="FuelLevel" name="widget_2" native="true">
+   <widget class="QWidget" name="gridLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>450</x>
-      <y>10</y>
-      <width>341</width>
+      <x>380</x>
+      <y>49</y>
+      <width>291</width>
       <height>291</height>
      </rect>
     </property>
+    <layout class="QGridLayout" name="fuelLevelPrototype"/>
    </widget>
    <widget class="Speed" name="widget_3" native="true">
     <property name="geometry">
