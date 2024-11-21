@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>854</width>
-    <height>597</height>
+    <width>992</width>
+    <height>642</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,20 +17,40 @@
    <widget class="Steering" name="widget" native="true">
     <property name="geometry">
      <rect>
-      <x>29</x>
-      <y>19</y>
+      <x>20</x>
+      <y>320</y>
       <width>351</width>
-      <height>301</height>
+      <height>261</height>
      </rect>
     </property>
    </widget>
    <widget class="FuelLevel" name="widget_2" native="true">
     <property name="geometry">
      <rect>
-      <x>430</x>
-      <y>20</y>
+      <x>450</x>
+      <y>10</y>
       <width>341</width>
       <height>291</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="Speed" name="widget_3" native="true">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>421</width>
+      <height>301</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="Lights" name="widget_4" native="true">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>310</y>
+      <width>501</width>
+      <height>271</height>
      </rect>
     </property>
    </widget>
@@ -40,7 +60,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>854</width>
+     <width>992</width>
      <height>21</height>
     </rect>
    </property>
@@ -67,6 +87,18 @@
    <class>FuelLevel</class>
    <extends>QWidget</extends>
    <header>fuellevel.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Speed</class>
+   <extends>QWidget</extends>
+   <header>Speed.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Lights</class>
+   <extends>QWidget</extends>
+   <header>Lights.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SpeedClass</class>
+ <widget class="QWidget" name="SpeedClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>583</width>
+    <height>323</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Speed</string>
+  </property>
+  <layout class="QVBoxLayout" name="mainSpeedLayout">
+   <item>
+    <widget class="QLabel" name="speedDisplay">
+     <property name="styleSheet">
+      <string>
+                            font-size: 18px;
+                            font-weight: bold;
+                            color: #0057D9;
+                        </string>
+     </property>
+     <property name="text">
+      <string>Current Speed: 0 km/h</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="maxSpeedWidget" native="true">
+     <layout class="QHBoxLayout" name="maxSpeedLayout">
+      <item>
+       <widget class="QLabel" name="maxSpeedLabel">
+        <property name="text">
+         <string>Maximum Speed:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="maxSpeedInput">
+        <property name="toolTip">
+         <string>Enter a speed limit (must be 220 or less).</string>
+        </property>
+        <property name="placeholderText">
+         <string>Enter maximum speed (220 or less)</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="setMaxSpeedButton">
+        <property name="text">
+         <string>Set Max Speed</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="currentSpeedWidget" native="true">
+     <layout class="QHBoxLayout" name="currentSpeedLayout">
+      <item>
+       <widget class="QLabel" name="currentSpeedLabel">
+        <property name="text">
+         <string>Current Speed:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="currentSpeedInput">
+        <property name="toolTip">
+         <string>Select a speed from the allowed file values.</string>
+        </property>
+        <property name="minimum">
+         <number>0</number>
+        </property>
+        <property name="maximum">
+         <number>500</number>
+        </property>
+        <property name="singleStep">
+         <number>1</number>
+        </property>
+        <property name="value">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="setCurrentSpeedButton">
+        <property name="text">
+         <string>Set Current Speed</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="accelerateBrakeWidget" native="true">
+     <layout class="QHBoxLayout" name="accelerateBrakeLayout">
+      <item>
+       <widget class="QPushButton" name="accelerateButton">
+        <property name="maximumSize">
+         <size>
+          <width>100</width>
+          <height>80</height>
+         </size>
+        </property>
+        <property name="toolTip">
+         <string>Accelerate (Increase Speed)</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>:icons/accelerate.png</normaloff>:icons/accelerate.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>150</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="brakeButton">
+        <property name="maximumSize">
+         <size>
+          <width>150</width>
+          <height>150</height>
+         </size>
+        </property>
+        <property name="toolTip">
+         <string>Brake (Decrease Speed)</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>:icons/brake.png</normaloff>:icons/brake.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>120</width>
+          <height>80</height>
+         </size>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
+ <connections/>
+</ui>

@@ -3,5 +3,11 @@
         <file>steering_wheel.png</file>
         <file>fuelIconRed.png</file>
         <file>fuelIconYellow.png</file>
+        <file>accelerate.png</file>
+        <file>brake.png</file>
+        <file>turn_right_green.png</file>
+        <file>turn_left_green.png</file>
+        <file>turn_left_white.png</file>
+        <file>turn_right_white.png</file>
     </qresource>
 </RCC>

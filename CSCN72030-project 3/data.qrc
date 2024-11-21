@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/data">
         <file>fuelLevel.txt</file>
+        <file>speed_data.txt</file>
     </qresource>
 </RCC>
