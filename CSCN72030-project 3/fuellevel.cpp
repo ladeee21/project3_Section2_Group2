@@ -68,15 +68,18 @@ void FuelReader::readFuelData() {
 
     // read one line at a time 
     QTextStream in(&file);
-    while (!in.atEnd()) {
-        QString line = in.readLine();
-        // lineRead is connected to updateFuelData so moves input data to main thread
-        emit lineRead(line.toFloat());
+    while (1)
+    {
+        while (!in.atEnd()) {
+            QString line = in.readLine();
+            // lineRead is connected to updateFuelData so moves input data to main thread
+            emit lineRead(line.toFloat());
 
-        // make thread wait 
-        QThread::msleep(100);
+            // make thread wait 
+            QThread::msleep(500);
+        }
+
+        // move file pointer back to start
+        in.seek(0);
     }
-
-    // move file pointer back to start
-    in.seek(0);
 }

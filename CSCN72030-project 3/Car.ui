@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>992</width>
-    <height>642</height>
+    <height>725</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -28,8 +28,8 @@
    <widget class="QWidget" name="gridLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>380</x>
-      <y>49</y>
+      <x>490</x>
+      <y>10</y>
       <width>291</width>
       <height>291</height>
      </rect>
@@ -49,7 +49,7 @@
    <widget class="Lights" name="widget_4" native="true">
     <property name="geometry">
      <rect>
-      <x>380</x>
+      <x>390</x>
       <y>310</y>
       <width>501</width>
       <height>271</height>
@@ -79,18 +79,6 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
-  <customwidget>
-   <class>Steering</class>
-   <extends>QWidget</extends>
-   <header>steering.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>FuelLevel</class>
-   <extends>QWidget</extends>
-   <header>fuellevel.h</header>
-   <container>1</container>
-  </customwidget>
   <customwidget>
    <class>Speed</class>
    <extends>QWidget</extends>

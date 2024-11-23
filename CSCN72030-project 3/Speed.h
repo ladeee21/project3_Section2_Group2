@@ -45,4 +45,5 @@ private slots:
     void updateSpeedFile(int oldValue, int newValue); // Updates the speed data file with new values
     void accelerate(); // Handles acceleration
     void brake();      // Handles braking
+    void on_brakeButton_clicked();
 };

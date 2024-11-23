@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Speed.h"
+#include "Lights.h"
 #include <QMessageBox>
 #include <QFile>
 #include <QTextStream>
@@ -25,7 +26,8 @@ Speed::Speed(QWidget* parent)
     connect(ui.setCurrentSpeedButton, &QPushButton::clicked, this, &Speed::setCurrentSpeed);
     connect(currentSpeedInput, QOverload<int>::of(&QSpinBox::valueChanged), this, &Speed::updateSpeedUI);
     connect(ui.accelerateButton, &QPushButton::clicked, this, &Speed::accelerate);
-    connect(ui.brakeButton, &QPushButton::clicked, this, &Speed::brake);
+    //connect(ui.brakeButton, &QPushButton::clicked, this, &Speed::brake);
+    
 
     // Load speed values and configure spinbox
     loadSpeedValues();
@@ -197,6 +199,37 @@ void Speed::accelerate()
 
 void Speed::brake()
 {
+    if (!maxSpeedSet) {
+        QMessageBox::warning(this, "Error", "Set the maximum speed first.");
+        return;
+    }
+
+    // Find the 5th lower value in the speed file
+    auto it = std::find(speedValues.begin(), speedValues.end(), currentSpeed);
+    for (int i = 0; i < 5 && it != speedValues.begin(); ++i) {
+        --it;
+    }
+
+    if (it == speedValues.begin()) {
+        QMessageBox::information(this, "Notice", "Cannot brake further.");
+        return;
+    }
+
+    int newSpeed = *it;
+    int oldSpeed = currentSpeed;  // Save old speed
+    currentSpeed = newSpeed;
+
+    // Update the file
+    updateSpeedFile(oldSpeed, newSpeed);
+
+    // Update UI
+    updateSpeedUI();
+    QMessageBox::information(this, "Success", "Braked to a lower speed.");
+}
+
+void Speed::on_brakeButton_clicked()
+{
+
     if (!maxSpeedSet) {
         QMessageBox::warning(this, "Error", "Set the maximum speed first.");
         return;
