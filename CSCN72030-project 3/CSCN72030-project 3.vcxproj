@@ -105,7 +105,6 @@
     <ClCompile Include="fuellevel.cpp" />
     <ClCompile Include="Lights.cpp" />
     <ClCompile Include="Speed.cpp" />
-    <ClCompile Include="spinbox.cpp" />
     <ClCompile Include="Steering.cpp" />
     <QtMoc Include="steering.h" />
     <QtRcc Include="icons.qrc" />
@@ -116,7 +115,6 @@
     <ClCompile Include="main.cpp" />
     <QtMoc Include="fuellevel.h" />
     <QtMoc Include="Speed.h" />
-    <QtMoc Include="spinbox.h" />
     <QtMoc Include="Lights.h" />
     <ClInclude Include="stdafx.h" />
     <ClCompile Include="stdafx.cpp">
@@ -125,9 +123,9 @@
     </ClCompile>
     <QtUic Include="fuellevel.ui" />
     <QtUic Include="Lights.ui" />
-    <QtUic Include="Speed.ui" />
+    <QtUic Include="SpeedTop.ui" />
     <QtUic Include="Steering.ui" />
-    <QtUic Include="Widget.ui" />
+    <QtUic Include="SpeedBottom.ui" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

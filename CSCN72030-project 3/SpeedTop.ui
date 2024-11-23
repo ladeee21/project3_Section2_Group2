@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SpeedTop</class>
+ <widget class="QWidget" name="SpeedTop">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>583</width>
+    <height>323</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Speed</string>
+  </property>
+  <widget class="QLabel" name="speedDisplay">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>20</y>
+     <width>192</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>
+                            font-size: 18px;
+                            font-weight: bold;
+                            color: #0057D9;
+                        </string>
+   </property>
+   <property name="text">
+    <string>Current Speed: 0 km/h</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QWidget" name="maxSpeedWidget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>165</y>
+     <width>317</width>
+     <height>42</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="maxSpeedLayout"/>
+  </widget>
+  <widget class="QLabel" name="maxSpeedLabel">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>80</y>
+     <width>92</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Maximum Speed:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="maxSpeedInput">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>80</y>
+     <width>206</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>Enter a speed limit (must be 220 or less).</string>
+   </property>
+   <property name="placeholderText">
+    <string>Enter maximum speed (220 or less)</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="setMaxSpeedButton">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>80</y>
+     <width>91</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Set Max Speed</string>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
+ <connections/>
+</ui>

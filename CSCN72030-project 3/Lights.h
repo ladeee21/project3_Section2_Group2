@@ -1,9 +1,14 @@
 #pragma once
+#include "ui_Lights.h"
 #include <QWidget>
-#include <QString>
-#include <QMap>
 #include <QPushButton>
-#include "ui_lights.h"
+#include <QLabel>
+#include <QFile>
+#include <QTextStream>
+
+namespace Ui {
+    class LightsClass;
+}
 
 class Lights : public QWidget
 {
@@ -12,27 +17,35 @@ class Lights : public QWidget
 public:
     explicit Lights(QWidget* parent = nullptr);
     ~Lights();
-
-    // Methods for system-controlled lights
-    void activateReverseLight();
-    void activateBrakeLight();
-    void activateParkingLight();
-
-private:
-    Ui::LightsClass ui;
-
-    // Map to track the state of all lights
-    QMap<QString, QString> lightsState;
-
-    // Helper functions
-    void toggleLight(const QString& lightName, const QString& state);
-    bool validateLightName(const QString& lightName); // Validate light name input
-    bool validateLightState(const QString& state);    // Validate state input
-
-    // Update UI to reflect the state of each light
-    void updateLightsUI();
+    void initializeLightStates();
 
 private slots:
-    void onLightNameEntered();  // Slot triggered when user enters the light name
-    void onLightStateEntered(const QString& lightName); // Slot triggered when user enters the light state
+    // Button press slots
+    void on_highBeamButton_clicked();
+    void on_lowBeamButton_clicked();
+    void on_InteriorCabinButton_clicked();
+
+    // System event slots
+    void on_reverseButton_clicked();
+    void on_brakeButton_clicked();
+    void on_parkingButton_clicked();
+    void toggleTurnSignalRight();
+    void toggleTurnSignalLeft();
+
+private:
+    Ui::LightsClass ui;  // Direct reference (not pointer) to the UI
+
+    // Helper functions
+    void updateLightState(const QString& lightName, bool state);
+    void updateLightUI(const QString& lightName, bool state);
+
+    // Internal light states
+    bool highBeamOn;
+    bool lowBeamOn;
+    bool turnSignalLeftOn;
+    bool turnSignalRightOn;
+    bool interiorCabinOn;
+    bool reverseLightOn;
+    bool brakeLightOn;
+    bool parkingLightOn;
 };

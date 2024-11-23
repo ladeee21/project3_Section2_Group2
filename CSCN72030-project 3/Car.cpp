@@ -13,11 +13,18 @@ Car::Car(QWidget *parent)
     // initialize classes
     fl = new FuelLevel(this);
     str = new Steering(this);
+    spd = new Speed(this);
 
     // add class widget to the layout prototype in th ui
     ui->steeringPrototype->addWidget(str);
     ui->fuelLevelPrototype->addWidget(fl);
    
+
+    // Add SpeedTop to speedPrototype
+    ui->speedTopPrototype->addWidget(spd->speedTopWidget());
+
+    // Add SpeedBottom to the new speedBottomPlaceholder
+    ui->speedBottomPrototype->addWidget(spd->speedBottomWidget());
 
     // create new thread for file reading and worker to read fuel data
     FuelReader* reader = new FuelReader();

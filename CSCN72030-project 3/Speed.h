@@ -1,49 +1,114 @@
 #pragma once
 #include <QWidget>
-#include "ui_Speed.h"
-#include <QString>
+#include <QSlider>
+#include <QTimer>
+#include <QMessageBox>
 #include <QVector>
+#include <QFile>
+#include <QTextStream>
+#include "ui_SpeedTop.h"
+#include "ui_SpeedBottom.h"
 #include "fuellevel.h"
-#include "spinbox.h"
 
-class Speed : public QWidget
+// SpeedReader class for threading and file reading
+class SpeedReader : public QObject
 {
     Q_OBJECT
 
 public:
-    explicit Speed(QWidget* parent = nullptr);
-    ~Speed();
-    int getCurrentSpeed() const;
-  //  void setFuelLevel(FuelLevel* fuelLevel); // Setter to initialize the FuelLevel
+    SpeedReader() {}
+    ~SpeedReader() {}
+
+public slots:
+    // Slot to handle speed file reading
+    void readSpeedData();
+
+signals:
+    // Signal emitted when a speed value is read
+    void lineRead(float speed);
+};
+
+// Speed class for UI and logic
+class Speed : public QWidget
+{
+    Q_OBJECT
 
 private:
-    Ui::SpeedClass ui;
+    // Timer for speed increments
+    QTimer* speedTimer;
 
-    // Speed-related variables
-    int maxSpeedLimit;         // Maximum speed limit
-    int currentSpeed;          // Current speed
-    int lastValidSpeed;        // Last valid speed before invalid input
-    QVector<int> speedValues;  // Valid speed values loaded from the file
-    bool maxSpeedSet;          // Indicates whether the maximum speed is set
-    CustomSpinBox* currentSpeedInput; // Replace default spinbox with custom spinbox
+    // Current speed value
+    float currentSpeed;
+
+    // Maximum allowable speed
+    float maxSpeed;
+
+    // Flag to check if max speed is set
+    bool maxSpeedSet;
+
+    // Step value from accelerate slider
+    int accelerateStep;
+
+    // Step value from brake slider
+    int brakeStep;
+
+    // Vector to hold speed values
+    QVector<float> speedValues;
+
+public:
+    Speed(QWidget* parent = nullptr);
+    ~Speed();
+    QWidget* speedTopWidget() { return m_speedTopWidget; }
+    QWidget* speedBottomWidget() { return m_speedBottomWidget; }
+
+    float getCurrentSpeed() const { return currentSpeed; }
+    void setCurrentSpeed(float speed);
+
+    // Update speed from external file
+    void updateSpeedFromFile(float speed);
+
+private:
+    // Top section of Speed UI
+    QWidget* m_speedTopWidget;
+
+    // Bottom section of Speed UI
+    QWidget* m_speedBottomWidget;
+
+    // UI for SpeedTop
+    Ui::SpeedTop topUi;
+
+    // UI for SpeedBottom
+    Ui::SpeedBottom bottomUi;
+
+    // Load speed values from file
+    void loadSpeedValues();
+
+    // Update speed file
+    void updateSpeedFile(float oldSpeed, float newSpeed);
 
 
-    // Resource-related variables
-    QString resourceFilePath;  // Path to the speed values resource file
-    FuelLevel* fuelLevel;      // Pointer to FuelLevel class instance
+public slots:
+    //
+    void decreaseSpeed(FuelLevel* fuellevel);
 
-    // Helper methods
-    void loadSpeedValues();       // Load speed values from the resource file
-    void configureSpinBox();      // Configure the spin box with valid speed values
-    void updateSpeedUI();         // Updates the speed-related UI components
-  //  bool validateSpeed(int speed) const; // Checks if a speed is valid based on file values
+    // Slot to handle max speed setting
+    void setMaxSpeedButton(); \
 
-private slots:
-    void setMaxSpeed();                // Sets the maximum speed limit
-  //  void spinBoxValueChanged(int value); // Handles spin box navigation (up/down changes)
-    void setCurrentSpeed();            // Confirms and sets the current speed manually
-    void updateSpeedFile(int oldValue, int newValue); // Updates the speed data file with new values
-    void accelerate(); // Handles acceleration
-    void brake();      // Handles braking
+        // Slot to handle accelerate slider input
+        void getAccelerateSliderInput(int value);
+
+    // Slot to handle brake slider input
+    void getBrakeSliderInput(int value);
+
+    // Slot to increment speed based on slider
+    void incrementSpeed();
+
+    // Update speed UI display
+    void updateSpeedUI();
+
+    // Slot for accelerate button
+    void on_accelerateButton_clicked();
+
+    // Slot for brake button
     void on_brakeButton_clicked();
 };

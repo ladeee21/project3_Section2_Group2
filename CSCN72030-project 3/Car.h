@@ -20,5 +20,5 @@ private:
     Ui::CarClass *ui;
     FuelLevel *fl;
     Steering* str;
-    
+    Speed* spd;
 };
