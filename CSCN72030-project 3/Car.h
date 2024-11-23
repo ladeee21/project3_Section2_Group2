@@ -4,6 +4,8 @@
 #include "ui_Car.h"
 #include "steering.h"
 #include "fuellevel.h"
+#include "Lights.h"
+#include "Speed.h"
 
 class Car : public QMainWindow
 {
@@ -18,4 +20,5 @@ private:
     Ui::CarClass *ui;
     FuelLevel *fl;
     Steering* str;
+    
 };

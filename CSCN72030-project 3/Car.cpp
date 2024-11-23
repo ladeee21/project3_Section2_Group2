@@ -17,7 +17,7 @@ Car::Car(QWidget *parent)
     // add class widget to the layout prototype in th ui
     ui->steeringPrototype->addWidget(str);
     ui->fuelLevelPrototype->addWidget(fl);
-
+   
 
     // create new thread for file reading and worker to read fuel data
     FuelReader* reader = new FuelReader();
