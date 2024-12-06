@@ -3,45 +3,49 @@
 #include <qslider.h>
 #include <qt>
 
-
-Car::Car(QWidget *parent)
+Car::Car(QWidget* parent)
     : QMainWindow(parent)
     , ui(new Ui::CarClass)
 {
     ui->setupUi(this);
 
-    // initialize classes
+    // Initialize classes
     fl = new FuelLevel(this);
     str = new Steering(this);
-    spd = new Speed(this);
-
-    // add class widget to the layout prototype in th ui
+    spd = new Speed(this,fl) ; // Pass FuelLevel instance to Speed
+    lgt = new Lights(this);
+    //fl
+    // Add class widget to the layout prototype in the UI
     ui->steeringPrototype->addWidget(str);
     ui->fuelLevelPrototype->addWidget(fl);
-   
-
-    // Add SpeedTop to speedPrototype
     ui->speedTopPrototype->addWidget(spd->speedTopWidget());
-
-    // Add SpeedBottom to the new speedBottomPlaceholder
     ui->speedBottomPrototype->addWidget(spd->speedBottomWidget());
 
-    // create new thread for file reading and worker to read fuel data
+    ui->headLightsPrototype->layout()->addWidget(lgt->HeadLightsWidget());
+    ui->autoLightsPrototype->layout()->addWidget(lgt->AutoLightsWidget());
+    ui->cabinLightPrototype->layout()->addWidget(lgt->CabinLightWidget());
+    ui->turnSignalsPrototype->layout()->addWidget(lgt->TurnSignalsWidget());
+
+    // Create new thread for file reading and worker to read fuel data
     FuelReader* reader = new FuelReader();
     QThread* fuelThread = new QThread();
 
-    // move reader to thread
+    // Move reader to thread
     reader->moveToThread(fuelThread);
 
-    // connect thread slots
+    // Connect thread slots
     connect(fuelThread, &QThread::started, reader, &FuelReader::readFuelData);
     connect(reader, &FuelReader::lineRead, fl, &FuelLevel::updateFuelLevel);
     connect(reader, &FuelReader::lineRead, reader, &FuelReader::deleteLater);
     connect(fuelThread, &QThread::finished, fuelThread, &QThread::deleteLater);
 
-    // start fuel thread
+    // Connect fuel level changes to speed adjustments
+    connect(fl, &FuelLevel::fuelLevelChanged, spd, &Speed::adjustSpeedBasedOnFuel);
+
+    // Start fuel thread
     fuelThread->start();
-      
+
+    qDebug() << "Car class initialized";
 }
 
 Car::~Car()
@@ -49,4 +53,6 @@ Car::~Car()
     delete ui;
     delete fl;
     delete str;
+    delete spd;
+    delete lgt;
 }

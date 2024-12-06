@@ -15,10 +15,11 @@ public:
     Car(QWidget *parent = nullptr);
     ~Car();
 
-   // void updateSteeringIcon(QPixmap rotatedPixmap);
+  
 private:
     Ui::CarClass *ui;
     FuelLevel *fl;
     Steering* str;
     Speed* spd;
+    Lights* lgt;
 };

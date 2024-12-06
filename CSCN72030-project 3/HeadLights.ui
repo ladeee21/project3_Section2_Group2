@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>HeadLightsClass</class>
+ <widget class="QWidget" name="HeadLightsClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Lights Control</string>
+  </property>
+  <widget class="QPushButton" name="highBeamButton">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>40</y>
+     <width>50</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>
+                    QPushButton {
+                    border: 2px solid black;
+                    border-radius: 25px;
+                    background-color: white;
+                    font-size: 16px;
+                    font-weight: bold;
+                    }
+                </string>
+   </property>
+   <property name="text">
+    <string>H</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="lowBeamButton">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>40</y>
+     <width>50</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>
+                    QPushButton {
+                    border: 2px solid black;
+                    border-radius: 25px;
+                    background-color: white;
+                    font-size: 16px;
+                    font-weight: bold;
+                    }
+                </string>
+   </property>
+   <property name="text">
+    <string>L</string>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
+ <connections/>
+</ui>

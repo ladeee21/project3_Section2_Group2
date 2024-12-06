@@ -29,10 +29,13 @@
        <string>Adjust acceleration step</string>
       </property>
       <property name="minimum">
-       <number>1</number>
+       <number>0</number>
       </property>
       <property name="maximum">
-       <number>20</number>
+       <number>6</number>
+      </property>
+      <property name="pageStep">
+       <number>1</number>
       </property>
       <property name="value">
        <number>5</number>
@@ -43,49 +46,18 @@
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="accelerateButton">
-      <property name="toolTip">
-       <string>Accelerate (Increase Speed)</string>
-      </property>
-      <property name="icon">
-       <iconset resource="../../project3_Section2_Group2-2/CSCN72030-project 3/icons.qrc">
-        <normaloff>:/icons/accelerate.png</normaloff>:/icons/accelerate.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>150</width>
-        <height>100</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="brakeButton">
-      <property name="toolTip">
-       <string>Brake (Decrease Speed)</string>
-      </property>
-      <property name="icon">
-       <iconset resource="../../project3_Section2_Group2-2/CSCN72030-project 3/icons.qrc">
-        <normaloff>:/icons/brake.png</normaloff>:/icons/brake.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>150</width>
-        <height>100</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item>
      <widget class="QSlider" name="brakeSlider">
       <property name="toolTip">
        <string>Adjust brake step</string>
       </property>
       <property name="minimum">
-       <number>1</number>
+       <number>0</number>
       </property>
       <property name="maximum">
-       <number>20</number>
+       <number>6</number>
+      </property>
+      <property name="pageStep">
+       <number>1</number>
       </property>
       <property name="value">
        <number>5</number>
@@ -99,7 +71,7 @@
   </widget>
  </widget>
  <resources>
-  <include location="../../project3_Section2_Group2-2/CSCN72030-project 3/icons.qrc"/>
+  <include location="icons.qrc"/>
  </resources>
  <connections/>
 </ui>

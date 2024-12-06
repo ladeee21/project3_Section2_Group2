@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "fuellevel.h"
-
 using namespace std;
 
 FuelLevel::FuelLevel(QWidget* parent)
@@ -28,6 +27,8 @@ void FuelLevel::updateFuelLevel(float fuelLevel)
     // update fuel bar and label to fuel percentage
     ui.fuelBar->setValue(this->fuelPercentage);
     updateFuelPercentageLabel();
+
+    emit fuelLevelChanged();
 
     // if fuel is critical turn yellow light on and red light off
     if (isFuelCritical())
