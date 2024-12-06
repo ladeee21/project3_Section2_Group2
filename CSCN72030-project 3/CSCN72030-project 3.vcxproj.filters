@@ -86,10 +86,19 @@
     <QtUic Include="SpeedTop.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtUic Include="Lights.ui">
+    <QtUic Include="HeadLights.ui">
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="SpeedBottom.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="turnsignals.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="cabinlight.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="autolights.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

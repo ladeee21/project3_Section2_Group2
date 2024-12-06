@@ -1,5 +1,8 @@
 #pragma once
-#include "ui_Lights.h"
+#include "ui_HeadLights.h"
+#include "ui_turnsignals.h"
+#include "ui_autolights.h"
+#include "ui_cabinlight.h"
 #include <QWidget>
 #include <QPushButton>
 #include <QLabel>
@@ -18,6 +21,10 @@ public:
     explicit Lights(QWidget* parent = nullptr);
     ~Lights();
     void initializeLightStates();
+    QWidget* HeadLightsWidget() { return m_HeadLightsWidget; }
+    QWidget* AutoLightsWidget(){return m_AutoLightsWidget;}
+    QWidget* CabinLightWidget() { return m_CabinLightWidget; }
+    QWidget* TurnSignalsWidget() { return m_TurnSignalsWidget; }
 
 private slots:
     // Button press slots
@@ -33,8 +40,16 @@ private slots:
     void toggleTurnSignalLeft();
 
 private:
-    Ui::LightsClass ui;  // Direct reference (not pointer) to the UI
+    Ui::HeadLightsClass Hui;
+    Ui::AutoLights Aui;
+    Ui::CabinLight Cui;
+    Ui::TurnSignals Tui;
 
+
+    QWidget* m_HeadLightsWidget;
+    QWidget* m_AutoLightsWidget;
+    QWidget* m_CabinLightWidget;
+    QWidget* m_TurnSignalsWidget;
     // Helper functions
     void updateLightState(const QString& lightName, bool state);
     void updateLightUI(const QString& lightName, bool state);

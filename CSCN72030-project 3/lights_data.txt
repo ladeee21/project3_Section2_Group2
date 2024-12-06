@@ -4,5 +4,5 @@ low beams:ON
 turn signal:OFF
 reverse light:ON
 brake lights:OFF
-interior cabin light:ON
+interior cabin light:OFF
 parking lights:OFF

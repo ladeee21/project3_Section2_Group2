@@ -65,6 +65,9 @@ private:
 public slots:
 	void updateFuelLevel(float fuelLevel);
 	void updateFuelPercentageLabel();
+
+signals:
+		void fuelLevelChanged();
 };
 
 // second class to run the file thread
@@ -79,4 +82,6 @@ public slots:
 
 signals:
 	void lineRead(float fuelLevel);
+
+	
 };

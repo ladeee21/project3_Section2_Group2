@@ -36,7 +36,11 @@ class Speed : public QWidget
 private:
     // Timer for speed increments
     QTimer* speedTimer;
+    QTimer* fuelTimer; // Timer for fuel checks
 
+    QTimer* speedReductionTimer;
+
+    FuelLevel* fuelLevel;
     // Current speed value
     float currentSpeed;
 
@@ -54,16 +58,16 @@ private:
 
     // Vector to hold speed values
     QVector<float> speedValues;
-
+    
+    //FuelLevel* fuel = nullptr
 public:
-    Speed(QWidget* parent = nullptr);
+    Speed(QWidget* parent = nullptr, FuelLevel* fuelLevel = nullptr);
     ~Speed();
     QWidget* speedTopWidget() { return m_speedTopWidget; }
     QWidget* speedBottomWidget() { return m_speedBottomWidget; }
 
     float getCurrentSpeed() const { return currentSpeed; }
     void setCurrentSpeed(float speed);
-
     // Update speed from external file
     void updateSpeedFromFile(float speed);
 
@@ -87,15 +91,14 @@ private:
     void updateSpeedFile(float oldSpeed, float newSpeed);
 
 
+
 public slots:
-    //
-    void decreaseSpeed(FuelLevel* fuellevel);
 
     // Slot to handle max speed setting
-    void setMaxSpeedButton(); \
+    void setMaxSpeedButton(); 
 
-        // Slot to handle accelerate slider input
-        void getAccelerateSliderInput(int value);
+   // Slot to handle accelerate slider input
+     void getAccelerateSliderInput(int value);
 
     // Slot to handle brake slider input
     void getBrakeSliderInput(int value);
@@ -106,9 +109,5 @@ public slots:
     // Update speed UI display
     void updateSpeedUI();
 
-    // Slot for accelerate button
-    void on_accelerateButton_clicked();
-
-    // Slot for brake button
-    void on_brakeButton_clicked();
+    void adjustSpeedBasedOnFuel();
 };

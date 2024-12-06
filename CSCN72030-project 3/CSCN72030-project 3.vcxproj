@@ -109,6 +109,8 @@
     <QtMoc Include="steering.h" />
     <QtRcc Include="icons.qrc" />
     <QtRcc Include="data.qrc" />
+    <QtUic Include="autolights.ui" />
+    <QtUic Include="cabinlight.ui" />
     <QtUic Include="Car.ui" />
     <QtMoc Include="Car.h" />
     <ClCompile Include="Car.cpp" />
@@ -122,10 +124,11 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <QtUic Include="fuellevel.ui" />
-    <QtUic Include="Lights.ui" />
+    <QtUic Include="HeadLights.ui" />
     <QtUic Include="SpeedTop.ui" />
     <QtUic Include="Steering.ui" />
     <QtUic Include="SpeedBottom.ui" />
+    <QtUic Include="turnsignals.ui" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
