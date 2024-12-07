@@ -115,6 +115,28 @@
     </property>
     <layout class="QGridLayout" name="turnSignalsPrototype"/>
    </widget>
+   <widget class="QWidget" name="gridLayoutWidget_9">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>290</y>
+      <width>111</width>
+      <height>231</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="GearShiftPrototype"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_10">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>310</y>
+      <width>101</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="ParkingBrakePrototype"/>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

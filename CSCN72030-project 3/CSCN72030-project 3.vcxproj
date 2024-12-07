@@ -103,7 +103,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="fuellevel.cpp" />
+    <ClCompile Include="GearShift.cpp" />
     <ClCompile Include="Lights.cpp" />
+    <ClCompile Include="ParkingBrake.cpp" />
     <ClCompile Include="Speed.cpp" />
     <ClCompile Include="Steering.cpp" />
     <QtMoc Include="steering.h" />
@@ -118,13 +120,17 @@
     <QtMoc Include="fuellevel.h" />
     <QtMoc Include="Speed.h" />
     <QtMoc Include="Lights.h" />
+    <QtMoc Include="GearShift.h" />
+    <QtMoc Include="ParkingBrake.h" />
     <ClInclude Include="stdafx.h" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <QtUic Include="fuellevel.ui" />
+    <QtUic Include="GearShift.ui" />
     <QtUic Include="HeadLights.ui" />
+    <QtUic Include="ParkingBrake.ui" />
     <QtUic Include="SpeedTop.ui" />
     <QtUic Include="Steering.ui" />
     <QtUic Include="SpeedBottom.ui" />

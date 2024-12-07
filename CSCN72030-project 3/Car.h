@@ -6,6 +6,8 @@
 #include "fuellevel.h"
 #include "Lights.h"
 #include "Speed.h"
+#include "GearShift.h"
+#include "ParkingBrake.h"
 
 class Car : public QMainWindow
 {
@@ -22,4 +24,6 @@ private:
     Steering* str;
     Speed* spd;
     Lights* lgt;
+    GearShift* gs;
+    ParkingBrake* pb;
 };

@@ -50,10 +50,13 @@ private:
     QWidget* m_AutoLightsWidget;
     QWidget* m_CabinLightWidget;
     QWidget* m_TurnSignalsWidget;
+
+public:
     // Helper functions
     void updateLightState(const QString& lightName, bool state);
     void updateLightUI(const QString& lightName, bool state);
 
+private:
     // Internal light states
     bool highBeamOn;
     bool lowBeamOn;
