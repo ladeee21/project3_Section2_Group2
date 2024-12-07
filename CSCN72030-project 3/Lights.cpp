@@ -30,7 +30,6 @@ Lights::Lights(QWidget* parent)
     connect(Cui.InteriorCabinButton, &QPushButton::clicked, this, &Lights::InteriorCabinButton);
     connect(Aui.reverseButton, &QPushButton::clicked, this, &Lights::reverseButton);
     connect(Aui.brakeButton, &QPushButton::clicked, this, &Lights::brakeButton);
-    connect(Aui.parkingButton, &QPushButton::clicked, this, &Lights::parkingButton);
     connect(Tui.turnSignalLeft, &QPushButton::clicked, this, &Lights::toggleTurnSignalLeft);
     connect(Tui.turnSignalRight, &QPushButton::clicked, this, &Lights::toggleTurnSignalRight);
 
@@ -133,13 +132,6 @@ void Lights::brakeButton()
     updateLightState("brake light", brakeLightOn);
 }
 
-void Lights::parkingButton()
-{
-    parkingLightOn = !parkingLightOn;
-    updateLightUI("parking light", parkingLightOn);
-    updateLightState("parking light", parkingLightOn);
-}
-
 void Lights::updateLightState(const QString& lightName, bool state)
 {
 
@@ -203,8 +195,5 @@ void Lights::updateLightUI(const QString& lightName, bool isOn)
         brakeLightOn = isOn;
         Aui.brakeButton->setStyleSheet(isOn ? "background-color: red;" : "background-color: white;");
     }
-    else if (lightName == "parking light") {
-        parkingLightOn = isOn;
-        Aui.parkingButton->setStyleSheet(isOn ? "background-color: black;" : "background-color: white;");
-    }
+ 
 }

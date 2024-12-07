@@ -33,13 +33,13 @@ private slots:
     void highBeamButton();
     void lowBeamButton();
     void InteriorCabinButton();
+    void toggleTurnSignalRight();
+    void toggleTurnSignalLeft();
 
     // System event slots
     void reverseButton();
     void brakeButton();
-    void parkingButton();
-    void toggleTurnSignalRight();
-    void toggleTurnSignalLeft();
+   
 
 private:
     Ui::HeadLightsClass Hui;
@@ -63,5 +63,4 @@ private:
     bool interiorCabinOn;
     bool reverseLightOn;
     bool brakeLightOn;
-    bool parkingLightOn;
 };
