@@ -6,8 +6,8 @@
 #include <QDebug>
 
 // Constructor
-Speed::Speed(QWidget* parent, FuelLevel* fuelLevel)
-    : QWidget(parent), currentSpeed(0), maxSpeed(0), maxSpeedSet(false), accelerateStep(0), brakeStep(0), fuelLevel(fuelLevel)
+Speed::Speed(QWidget* parent, FuelLevel* fuelLevel, Lights* lights)
+    : QWidget(parent), currentSpeed(0), maxSpeed(0), maxSpeedSet(false), accelerateStep(0), brakeStep(0), fuelLevel(fuelLevel), lights(lights)
 {
     // Create a layout to hold both widgets
     QVBoxLayout* mainLayout = new QVBoxLayout(this);
@@ -168,6 +168,10 @@ void Speed::getBrakeSliderInput(int value)
     if (value == 0) {
         brakeStep = 0;
         speedTimer->stop();
+        if (lights) {
+            lights->updateLightUI("brake light", false);
+            lights->updateLightState("brake light", false); // Turn off brake light
+        }
         return;
     }
     else if (value == 1) {
@@ -186,6 +190,13 @@ void Speed::getBrakeSliderInput(int value)
         brakeStep = -2;
     }
 
+    // If brake is active, turn on brake light
+    if (lights) {
+        lights->updateLightUI("brake light", true);
+        lights->updateLightState("brake light", true); // Turn on brake light
+        
+    }
+
     // Check if the new speed would fall below 0
     float newSpeed = currentSpeed + brakeStep;
     if (newSpeed < 0) {
@@ -194,6 +205,10 @@ void Speed::getBrakeSliderInput(int value)
         bottomUi.brakeSlider->setValue(0); // Reset slider to 0
         bottomUi.brakeSlider->blockSignals(false);
         brakeStep = 0;
+        if (lights) {
+            lights->updateLightUI("brake light", false);
+            lights->updateLightState("brake light", false); // Turn off brake light
+        }
         return;
     }
 
@@ -254,6 +269,7 @@ void Speed::incrementSpeed()
         setCurrentSpeed(newSpeed);
     }
 }
+
 
 // Update the speed UI
 void Speed::updateSpeedUI()

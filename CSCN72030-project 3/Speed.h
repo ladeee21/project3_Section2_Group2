@@ -9,6 +9,8 @@
 #include "ui_SpeedTop.h"
 #include "ui_SpeedBottom.h"
 #include "fuellevel.h"
+#include "Lights.h"
+#include "ui_autolights.h"
 
 // SpeedReader class for threading and file reading
 class SpeedReader : public QObject
@@ -41,6 +43,9 @@ private:
     QTimer* speedReductionTimer;
 
     FuelLevel* fuelLevel;
+
+    Lights* lights;
+
     // Current speed value
     float currentSpeed;
 
@@ -61,7 +66,7 @@ private:
     
     //FuelLevel* fuel = nullptr
 public:
-    Speed(QWidget* parent = nullptr, FuelLevel* fuelLevel = nullptr);
+    Speed(QWidget* parent = nullptr, FuelLevel* fuelLevel = nullptr, Lights* lights = nullptr);
     ~Speed();
     QWidget* speedTopWidget() { return m_speedTopWidget; }
     QWidget* speedBottomWidget() { return m_speedBottomWidget; }

@@ -25,17 +25,19 @@ public:
     QWidget* AutoLightsWidget(){return m_AutoLightsWidget;}
     QWidget* CabinLightWidget() { return m_CabinLightWidget; }
     QWidget* TurnSignalsWidget() { return m_TurnSignalsWidget; }
+    void updateLightState(const QString& lightName, bool state);
+    void updateLightUI(const QString& lightName, bool state);
 
 private slots:
     // Button press slots
-    void on_highBeamButton_clicked();
-    void on_lowBeamButton_clicked();
-    void on_InteriorCabinButton_clicked();
+    void highBeamButton();
+    void lowBeamButton();
+    void InteriorCabinButton();
 
     // System event slots
-    void on_reverseButton_clicked();
-    void on_brakeButton_clicked();
-    void on_parkingButton_clicked();
+    void reverseButton();
+    void brakeButton();
+    void parkingButton();
     void toggleTurnSignalRight();
     void toggleTurnSignalLeft();
 
@@ -51,9 +53,8 @@ private:
     QWidget* m_CabinLightWidget;
     QWidget* m_TurnSignalsWidget;
     // Helper functions
-    void updateLightState(const QString& lightName, bool state);
-    void updateLightUI(const QString& lightName, bool state);
-
+    
+    
     // Internal light states
     bool highBeamOn;
     bool lowBeamOn;
