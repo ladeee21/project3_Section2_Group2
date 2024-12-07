@@ -1,91 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>AutoLights</class>
- <widget class="QWidget" name="AutoLights">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>400</width>
-    <height>300</height>
-   </rect>
-  </property>
-  <property name="windowTitle">
-   <string>Form</string>
-  </property>
-  <widget class="QPushButton" name="reverseButton">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>80</y>
-     <width>50</width>
-     <height>50</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string>
-                    QPushButton{
-                    border: 2px solid black;
-                    border-radius: 25px;
-                    background-color: white;
-                    font-size: 16px;
-                    font-weight: bold;
-                    }
-                </string>
-   </property>
-   <property name="text">
-    <string>R</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="brakeButton">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>80</y>
-     <width>50</width>
-     <height>50</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string>
-                    QPushButton {
-                    border: 2px solid black;
-                    border-radius: 25px;
-                    background-color: white;
-                    font-size: 16px;
-                    font-weight: bold;
-                    }
-                </string>
-   </property>
-   <property name="text">
-    <string>B</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="parkingButton">
-   <property name="geometry">
-    <rect>
-     <x>340</x>
-     <y>80</y>
-     <width>50</width>
-     <height>50</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string>
-                    QPushButton {
-                    border: 2px solid black;
-                    border-radius: 25px;
-                    background-color: white;
-                    font-size: 16px;
-                    font-weight: bold;
-                    }
-                </string>
-   </property>
-   <property name="text">
-    <string>P</string>
-   </property>
-  </widget>
- </widget>
- <resources/>
- <connections/>
+	<class>AutoLights</class>
+	<widget class="QWidget" name="AutoLights">
+		<property name="geometry">
+			<rect>
+				<x>0</x>
+				<y>0</y>
+				<width>400</width>
+				<height>300</height>
+			</rect>
+		</property>
+		<property name="windowTitle">
+			<string>Form</string>
+		</property>
+		<widget class="QPushButton" name="reverseButton">
+			<property name="geometry">
+				<rect>
+					<x>0</x>
+					<y>80</y>
+					<width>50</width>
+					<height>50</height>
+				</rect>
+			</property>
+			<property name="styleSheet">
+				<string>
+					QPushButton{
+					border: 2px solid black;
+					border-radius: 25px;
+					background-color: white;
+					font-size: 16px;
+					font-weight: bold;
+					}
+				</string>
+			</property>
+			<property name="text">
+				<string>R</string>
+			</property>
+		</widget>
+		<widget class="QPushButton" name="brakeButton">
+			<property name="geometry">
+				<rect>
+					<x>150</x>
+					<y>80</y>
+					<width>50</width>
+					<height>50</height>
+				</rect>
+			</property>
+			<property name="styleSheet">
+				<string>
+					QPushButton {
+					border: 2px solid black;
+					border-radius: 25px;
+					background-color: white;
+					font-size: 16px;
+					font-weight: bold;
+					}
+				</string>
+			</property>
+			<property name="text">
+				<string>B</string>
+			</property>
+		</widget>
+	</widget>
+	<resources/>
+	<connections/>
 </ui>

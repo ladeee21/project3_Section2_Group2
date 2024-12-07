@@ -25,12 +25,11 @@ Lights::Lights(QWidget* parent)
     Tui.setupUi(m_TurnSignalsWidget);
 
     // Connect the signals to appropriate slots
-    connect(Hui.highBeamButton, &QPushButton::clicked, this, &Lights::on_highBeamButton_clicked);
-    connect(Hui.lowBeamButton, &QPushButton::clicked, this, &Lights::on_lowBeamButton_clicked);
-    connect(Cui.InteriorCabinButton, &QPushButton::clicked, this, &Lights::on_InteriorCabinButton_clicked);
-    connect(Aui.reverseButton, &QPushButton::clicked, this, &Lights::on_reverseButton_clicked);
-    connect(Aui.brakeButton, &QPushButton::clicked, this, &Lights::on_brakeButton_clicked);
-    connect(Aui.parkingButton, & QPushButton::clicked, this, & Lights::on_parkingButton_clicked);
+    connect(Hui.highBeamButton, &QPushButton::clicked, this, &Lights::highBeamButton);
+    connect(Hui.lowBeamButton, &QPushButton::clicked, this, &Lights::lowBeamButton);
+    connect(Cui.InteriorCabinButton, &QPushButton::clicked, this, &Lights::InteriorCabinButton);
+    connect(Aui.reverseButton, &QPushButton::clicked, this, &Lights::reverseButton);
+    connect(Aui.brakeButton, &QPushButton::clicked, this, &Lights::brakeButton);
     connect(Tui.turnSignalLeft, &QPushButton::clicked, this, &Lights::toggleTurnSignalLeft);
     connect(Tui.turnSignalRight, &QPushButton::clicked, this, &Lights::toggleTurnSignalRight);
 
@@ -81,21 +80,21 @@ void Lights::initializeLightStates()
     }
 }
 
-void Lights::on_highBeamButton_clicked()
+void Lights::highBeamButton()
 {
     highBeamOn = !highBeamOn;
     updateLightUI("high beams", highBeamOn);
     updateLightState("high beams", highBeamOn);
 }
 
-void Lights::on_lowBeamButton_clicked()
+void Lights::lowBeamButton()
 {
     lowBeamOn = !lowBeamOn;
     updateLightUI("low beams", lowBeamOn);
     updateLightState("low beams", lowBeamOn);
 }
 
-void Lights::on_InteriorCabinButton_clicked()
+void Lights::InteriorCabinButton()
 {
     interiorCabinOn = !interiorCabinOn;
     updateLightUI("interior cabin light", interiorCabinOn);
@@ -119,29 +118,25 @@ void Lights::toggleTurnSignalRight()
 
 
 // System event-based light changes
-void Lights::on_reverseButton_clicked()
+void Lights::reverseButton()
 {
     reverseLightOn = !reverseLightOn;
     updateLightUI("reverse light", reverseLightOn);
     updateLightState("reverse light", reverseLightOn);
 }
 
-void Lights::on_brakeButton_clicked()
+void Lights::brakeButton()
 {
     brakeLightOn = !brakeLightOn;
     updateLightUI("brake light", brakeLightOn);
     updateLightState("brake light", brakeLightOn);
 }
 
-void Lights::on_parkingButton_clicked()
-{
-    parkingLightOn = !parkingLightOn;
-    updateLightUI("parking light", parkingLightOn);
-    updateLightState("parking light", parkingLightOn);
-}
-
 void Lights::updateLightState(const QString& lightName, bool state)
 {
+
+    qDebug() << "Updating light state:" << lightName << "to" << (state ? "ON" : "OFF");
+
     // Read the current file contents
     QFile file("lights_data.txt");
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
@@ -200,8 +195,5 @@ void Lights::updateLightUI(const QString& lightName, bool isOn)
         brakeLightOn = isOn;
         Aui.brakeButton->setStyleSheet(isOn ? "background-color: red;" : "background-color: white;");
     }
-    else if (lightName == "parking light") {
-        parkingLightOn = isOn;
-        Aui.parkingButton->setStyleSheet(isOn ? "background-color: black;" : "background-color: white;");
-    }
+ 
 }

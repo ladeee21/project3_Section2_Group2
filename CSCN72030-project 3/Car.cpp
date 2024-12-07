@@ -12,8 +12,11 @@ Car::Car(QWidget* parent)
     // Initialize classes
     fl = new FuelLevel(this);
     str = new Steering(this);
-    spd = new Speed(this,fl) ; // Pass FuelLevel instance to Speed
     lgt = new Lights(this);
+    spd = new Speed(this,fl, lgt) ; // Pass FuelLevel instance to Speed
+   
+
+
     //fl
     gs = new GearShift(this, spd, lgt);
     pb = new ParkingBrake(this, spd);

@@ -1,8 +1,7 @@
-headlights:OFF
 high beams:ON
 low beams:ON
-turn signal:OFF
+turn signal right:ON
+turn signal left:ON
 reverse light:OFF
-brake lights:OFF
+brake light:OFF
 interior cabin light:OFF
-parking lights:OFF
