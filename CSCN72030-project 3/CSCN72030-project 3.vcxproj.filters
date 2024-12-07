@@ -61,6 +61,12 @@
     <ClCompile Include="Lights.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GearShift.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ParkingBrake.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="steering.h">
@@ -73,6 +79,12 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="Lights.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="GearShift.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ParkingBrake.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -99,6 +111,12 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="autolights.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="GearShift.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ParkingBrake.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

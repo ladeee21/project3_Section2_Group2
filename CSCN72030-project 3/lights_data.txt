@@ -5,4 +5,3 @@ turn signal left:ON
 reverse light:OFF
 brake light:OFF
 interior cabin light:OFF
-parking light:OFF

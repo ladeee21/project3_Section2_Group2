@@ -18,6 +18,8 @@ Car::Car(QWidget* parent)
 
 
     //fl
+    gs = new GearShift(this, spd, lgt);
+    pb = new ParkingBrake(this, spd);
     // Add class widget to the layout prototype in the UI
     ui->steeringPrototype->addWidget(str);
     ui->fuelLevelPrototype->addWidget(fl);
@@ -28,6 +30,9 @@ Car::Car(QWidget* parent)
     ui->autoLightsPrototype->layout()->addWidget(lgt->AutoLightsWidget());
     ui->cabinLightPrototype->layout()->addWidget(lgt->CabinLightWidget());
     ui->turnSignalsPrototype->layout()->addWidget(lgt->TurnSignalsWidget());
+
+    ui->GearShiftPrototype->addWidget(gs);
+    ui->ParkingBrakePrototype->addWidget(pb);
 
     // Create new thread for file reading and worker to read fuel data
     FuelReader* reader = new FuelReader();
@@ -58,4 +63,6 @@ Car::~Car()
     delete str;
     delete spd;
     delete lgt;
+    delete gs;
+    delete pb;
 }
